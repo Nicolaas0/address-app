@@ -2,7 +2,6 @@
 /* eslint-disable no-restricted-imports */
 import { useEffect, useState } from "react"
 
-import Button from "components/base/button"
 import Input from "components/base/input/input"
 import Modal from "components/base/modal"
 
@@ -44,9 +43,9 @@ export default function LoginModal({ popupState, popupHandler }: Props) {
                 <div className='font-semibold text-center text-xl mb-5'>Login</div>
                 <div className='space-y-4 flex flex-col justify-center items-center'>
                     <Input label='📧 Email' placeholder='Enter Email' onChange={(value) => handleInputChange('email', value)} />
-                    <Input label='🔑 Password' placeholder='Enter Password' onChange={(value) => handleInputChange('password', value)} />
+                    <Input type="password" label='🔑 Password' placeholder='Enter Password' onChange={(value) => handleInputChange('password', value)} />
                     {error && <p>{error}</p>}
-                    <Button title="Submit" onClick={submitHandler} />
+                    <button className="border border-solid border-white p-4 rounded-lg bg-[#f89936] text-white font-semibold" onClick={submitHandler}>Submit</button>
                 </div>
             </div>
         </Modal>

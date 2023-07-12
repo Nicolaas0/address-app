@@ -2,8 +2,6 @@
 /* eslint-disable no-restricted-imports */
 import { useState } from "react"
 
-import Button from "components/base/button"
-// import FileInput from "components/base/file"
 import Input from "components/base/input/input"
 import Modal from "components/base/modal"
 import TextArea from "components/base/textarea"
@@ -62,8 +60,7 @@ export default function AddModal({ popupState, popupHandler }: Props) {
                     <Input label='Email' placeholder='Enter email' onChange={(value) => handleInputChange('email', value)} />
                     <Input label='Country' placeholder='Enter country' onChange={(value) => handleInputChange('country', value)} />
                     <TextArea label="Address" placeholder="Enter address" onChange={(value) => handleInputChange('address', value)} />
-                    <Button title="Submit" onClick={submitHandler} />
-                    {/* <FileInput onFileSelect={onChangeHandler} /> */}
+                    <button className="border border-solid border-white p-4 rounded-lg bg-[#f89936] text-white font-semibold" onClick={submitHandler}>Submit</button>
                 </div>
             </div>
         </Modal>

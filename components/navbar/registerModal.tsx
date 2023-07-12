@@ -2,7 +2,7 @@
 /* eslint-disable no-restricted-imports */
 import { useEffect, useState } from "react"
 
-import Button from "components/base/button"
+import MyButton from "components/base/button"
 import Input from "components/base/input/input"
 import Modal from "components/base/modal"
 
@@ -46,7 +46,7 @@ export default function RegisterModal({ popupState, popupHandler }: Props) {
     return (
         <Modal popupState={popupState} popupHandler={popupHandler}>
             <div className=''>
-                <div className='font-semibold text-center text-xl mb-5'>Add Contact</div>
+                <div className='font-semibold text-center text-xl mb-5'>Register</div>
                 <div className='space-y-4 flex flex-col justify-center items-center'>
                     <Input label='Email' placeholder='Enter Email' onChange={(value) => handleInputChange('email', value)} />
                     <Input label='Username' placeholder='Enter username' onChange={(value) => handleInputChange('username', value)} />
@@ -55,7 +55,7 @@ export default function RegisterModal({ popupState, popupHandler }: Props) {
                     {userCredential && <p>User registered successfully!</p>}
                     {errorRegister && <p>{errorRegister}</p>}
                     {error && <p>{error}</p>}
-                    <Button title="Submit" onClick={submitHandler} />
+                    <button className="border border-solid border-white p-4 rounded-lg bg-[#f89936] text-white font-semibold" onClick={submitHandler}>Submit</button>
                 </div>
             </div>
         </Modal>
