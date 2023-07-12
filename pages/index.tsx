@@ -1,17 +1,17 @@
 import Head from 'next/head'
 
+// eslint-disable-next-line no-restricted-imports
+import ContactList from 'components/base/contact'
 import { DefaultLayout } from 'components/layouts'
-import { FeatureList } from 'features/information'
 import { NextPageWithLayout } from 'types'
 
 const Home: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>Phone Appz</title>
       </Head>
-
-      <FeatureList />
+      <ContactList />
     </>
   )
 }

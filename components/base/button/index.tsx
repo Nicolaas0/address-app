@@ -1,48 +1,26 @@
-import { ElementType, forwardRef } from 'react'
-import { twMerge } from 'tailwind-merge'
+interface Props {
+  color?: string;
+  title: string;
+  loading?: boolean;
+  onClick?: () => void;
+}
 
-import { PolymorphicRef } from 'types'
+export default function MyButton({ color = 'blue-500', title, loading = false, onClick, ...rest }: Props) {
 
-import { ButtonComponent, ButtonProps } from './type'
-
-export const Button: ButtonComponent = forwardRef(function Button<
-  C extends ElementType
->(properties: ButtonProps<C>, reference: PolymorphicRef<C>) {
-  const {
-    as,
-    children,
-    className,
-    variant = 'filled',
-    colorScheme = 'primary',
-    ...rest
-  } = properties
-
-  /**
-   * Set component wrapper
-   * default to button
-   */
-  const Component = as || 'button'
-
-  /**
-   * Text wrapper for outlined variant
-   */
-  const textWrapper = (
-    <span className="relative inset-0 rounded-[inherit] bg-white px-5 py-2.5 transition-colors hover:text-white group-hover:bg-opacity-0">
-      {children}
-    </span>
-  )
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
 
   return (
-    <Component
-      ref={reference}
+    <button
+      className={`bg-${loading ? 'gray-400' : color} text-white font-bold py-2 px-4 rounded`}
+      onClick={handleClick}
+      disabled={loading}
       {...rest}
-      className={twMerge(
-        'group',
-        `btn btn-${variant} btn-${colorScheme}`,
-        className
-      )}
     >
-      {variant === 'outlined' ? textWrapper : children}
-    </Component>
-  )
-})
+      {loading ? 'Loading...' : title}
+    </button>
+  );
+}
